@@ -8,6 +8,9 @@ class TransferDetailsView extends Component {
   }
 
   render() {
+    let {product} = this.props;
+    console.log('review data product...',product.name);
+
     return (
       <View
         style={{
@@ -32,9 +35,9 @@ class TransferDetailsView extends Component {
         <View style={{height: 2, backgroundColor: '#f5f4f6'}}></View>
         <View style={{height: 10}}></View>
 
-        <RowView title={"You're sending"} value={'100.00 CAD'} />
-        <RowView title={'Exchange rate'} value={'59.5809 INR'} superScriptValue={'2'} />
-        <RowView title={'Receiver gets'} value={'5958.09 INR'} superScriptValue={'1,2,5,15'} />
+        <RowView title={"You're sending"} value={product.origination.principalAmount} currenyType ={"CAD"} />
+        <RowView title={'Exchange rate'} value={product.exchangeRate} superScriptValue={'2'} currenyType ={"INR"}/>
+        <RowView title={'Receiver gets'} value={product.destination.expectedPayoutAmount} superScriptValue={'1,2,5,15'} currenyType ={"INR"}/>
 
         <View style={{height: 10}}></View>
         <View
@@ -44,8 +47,8 @@ class TransferDetailsView extends Component {
             backgroundColor: '#f5f4f6',
           }}></View>
         <View style={{height: 10}}></View>
-        <RowView title={'Our fees'} value={'+7.50 CAD'} superScriptValue={'2,5'}/>
-        <RowView title={'Promo code'} value={'-5.00 CAD'} valueTextColor={'#4b8158'}/>
+        <RowView title={'Our fees'} value={product.fees} superScriptValue={'2,5'} currenyType ={"CAD"}/>
+        <RowView title={'Promo code'} value={'-5.00 CAD'} valueTextColor={'#4b8158'} currenyType ={"CAD"}/>
         <View style={{height: 10}}></View>
 
         <View
@@ -87,7 +90,7 @@ class TransferDetailsView extends Component {
           }}></View>
         <View style={{height: 10}}></View>
 
-        <RowView title={'Payment method'} value={'Credit Card'} superScriptValue={'3'}/>
+        <RowView title={'Payment method'} value={product.type} superScriptValue={'3'}/>
         <RowView title={'To'} value={'India'} />
         <RowView title={'Delivery by'} value={'Cash pickup'} superScriptValue={'6,15'}/>
         <RowView title={'Available'} value={'In minutes'} />

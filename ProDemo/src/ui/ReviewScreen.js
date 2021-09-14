@@ -24,27 +24,33 @@ class ReviewScreen extends Component {
   }
 
   componentDidMount() {
-  this.props.getReviewData(Response);
-  //  console.log('Result======'+JSON.stringify(order));
-      console.log(this.props);
 
+    this.props.getReviewData(Response);
+  
   }
 
   render() {
     let {reviewData} = this.props.reviewDataModel;
+    
     console.log('review data...',reviewData);
     if(!reviewData){
-      
-      return;
+      return<View></View>;
     }
-    console.log('review data...',reviewData.order.paymentMethod.paymentType);
+
+    let{sender,order} = reviewData;
+    //let{sender} = reviewData;
+   
+    console.log('review data sender...',sender);
+
     return (
       <SafeAreaView style={{flex: 1}}>
         <View style={styles.outerView}>
           <View style={{height: 30}}></View>
           <View style={{flex: 1, paddingHorizontal: 20}}>
+            {/* Scroll view start */}
             <ScrollView showsVerticalScrollIndicator={false}>
               <View style={{flex: 1}}>
+                {/* top Review text */}
                 <View
                   style={{
                     height: 60,
@@ -66,6 +72,7 @@ class ReviewScreen extends Component {
                 </View>
 
                 <View style={{height: 30}}></View>
+                {/* transferdate view */}
                 <View
                   style={{
                     flex: 0,
@@ -85,15 +92,15 @@ class ReviewScreen extends Component {
 
                 <View style={{height: 30}}></View>
 
-                <TransferDetailsView />
+                <TransferDetailsView product = {order.product}/>
 
                 <View style={{height: 25}}></View>
 
-                <SenderDetailsView />
+                <SenderDetailsView sender = {sender}/>
 
                 <View style={{height: 30}}></View>
 
-                <SenderIDView />
+                <SenderIDView complianceData ={sender.complianceData}/>
 
                 <View style={{height: 30}}></View>
 

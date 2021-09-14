@@ -9,6 +9,8 @@ class SenderIDView extends Component {
   }
 
   render() {
+    let{documents} = this.props.complianceData;
+    console.log('complianceData---',documents);
     return (
       // card view outer with corner redious
       <View
@@ -54,8 +56,8 @@ class SenderIDView extends Component {
               Sender's ID information
             </Text>
             <View style={{height: 5}}></View>
-            <Text style={{fontSize: 22, lineHeight: 24, fontWeight: '600'}}>
-              Driver's license
+            <Text style={{fontSize: 18, lineHeight: 20, fontWeight: '600'}}>
+              { documents[0].docType}
             </Text>
           </View>
           
@@ -80,7 +82,7 @@ class SenderIDView extends Component {
         </View> 
         <View style={{height: 10}}></View>
 
-        <RowViewSenderID title={"Primary ID"} IdName={"Driver's license"} IdNumber={"U5146311809374"} />
+        <RowViewSenderID title={"Primary ID"} IdName={ documents[0].docType} IdNumber={ documents[0].docNumber } />
 
         <View style={{height: 50}}></View>
         <View style={{flex: 0, justifyContent: 'center',alignItems:'center'}}>

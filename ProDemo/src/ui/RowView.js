@@ -7,7 +7,7 @@ class RowView extends Component {
   }
 
   render() {
-    let {title, value, superScriptValue, valueTextColor} = this.props;
+    let {title, value, superScriptValue, valueTextColor,currenyType=''} = this.props;
     return (
       <View
         style={{
@@ -54,7 +54,7 @@ class RowView extends Component {
               fontWeight: '600',
               color: valueTextColor ? valueTextColor : 'black',
             }}>
-            {value}
+            {value+" "+currenyType}
           </Text>
         </View>
       </View>
