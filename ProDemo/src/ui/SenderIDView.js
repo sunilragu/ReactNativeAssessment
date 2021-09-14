@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Button} from 'react-native';
 import RowView from './RowView';
-import RowViewSenderID from './RowView SenderID';
+import RowViewSenderID from './RowViewSenderID';
 
 class SenderIDView extends Component {
   constructor(props) {

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,22 +10,34 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+
 import SenderDetailsView from './SenderDetailsView';
-import SenderIDView from './SenderIDView ';
+import SenderIDView from './SenderIDView';
 import TransferDetailsView from './TransferDetailsView';
+
+import {getReviewData} from '../ui/actions/ReviewActions';
+import Response from '../api/response.json'
 
 class ReviewScreen extends Component {
   constructor(props) {
     super(props);
-
-    
   }
 
   componentDidMount() {
-   // console.log('Result======', Result);
+  this.props.getReviewData(Response);
+  //  console.log('Result======'+JSON.stringify(order));
+      console.log(this.props);
+
   }
 
   render() {
+    let {reviewData} = this.props.reviewDataModel;
+    console.log('review data...',reviewData);
+    if(!reviewData){
+      
+      return;
+    }
+    console.log('review data...',reviewData.order.paymentMethod.paymentType);
     return (
       <SafeAreaView style={{flex: 1}}>
         <View style={styles.outerView}>
@@ -106,4 +119,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ReviewScreen;
+function mapStoreToProps(state) {
+  return {
+    reviewDataModel: state,
+  };
+}
+
+export default connect(mapStoreToProps, {
+  getReviewData,
+})(ReviewScreen);

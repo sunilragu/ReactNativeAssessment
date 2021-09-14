@@ -39,12 +39,12 @@ class RowViewSenderID extends Component {
         </View>
         <View style={{flex: 1, alignItems: 'flex-end'}}>
           <Text
-            style={{fontSize: 22, lineHeight: 24, fontWeight: '600'}}
+            style={{fontSize: 16, lineHeight: 24, fontWeight: '600'}}
             >
             {IdName}
           </Text>
           <Text
-            style={{fontSize: 22, lineHeight: 24, fontWeight: '600'}}
+            style={{fontSize: 16, lineHeight: 24, fontWeight: '600'}}
             >
               {IdNumber}
             </Text>
