@@ -30,8 +30,8 @@ class SenderIDView extends Component {
           shadowOpacity: 1.0,
           elevation: 2,
         }}>
-
-        <View style={{ flex: 0, flexDirection: 'row', padding: 15 }}>
+<View style={{ justifyContent: 'space-between', padding: 15, flexDirection: 'row' }}>
+        <View style={{ flex: 1, flexDirection: 'row'}}>
 
           <View
             style={{ width: 70, justifyContent: 'center' }}>
@@ -70,17 +70,18 @@ class SenderIDView extends Component {
               {documents[0].docType}
             </Text>
           </View>
+          </View>
           {/* image arrow right */}
           <View
             style={{
-              marginStart: 40,
               alignContent: 'center',
-              justifyContent: 'flex-end',
+              justifyContent: 'center',
 
             }}
           >
             <ImageArrowRight></ImageArrowRight>
           </View>
+          
         </View>
         {/* top view end */}
         <View style={{ height: 5 }}></View>

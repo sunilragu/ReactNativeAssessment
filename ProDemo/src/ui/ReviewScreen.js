@@ -72,7 +72,7 @@ class ReviewScreen extends Component {
                     flexDirection:'row',
                     alignItems:'center'
                   }}>
-                  <Text style={{fontSize: 40, fontWeight: 'bold'}}>Review</Text>
+                  <Text style={{fontSize: 30, fontWeight: 'bold'}}>Review</Text>
                   <ImageArrowRight></ImageArrowRight>
 
                 </View>

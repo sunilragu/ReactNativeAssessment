@@ -28,57 +28,58 @@ class SenderDetailsView extends Component {
           shadowOpacity: 1.0,
           elevation: 2,
         }}>
-        <View style={{ flex: 0, flexDirection: 'row', padding: 15 }}>
-
-          <View
-            style={{ width: 70, justifyContent: 'center' }}>
-            {/* image view circle */}
+        <View style={{ justifyContent: 'space-between', padding: 15, flexDirection: 'row' }}>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
 
             <View
-              style={{
-                width: 50,
-                height: 50,
-                backgroundColor: 'red',
-                borderRadius: 25,
-                justifyContent: 'center',
-                alignItems: 'center'
+              style={{ width: 70, justifyContent: 'center' }}>
+              {/* image view circle */}
 
-              }}>
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: 'red',
+                  borderRadius: 25,
+                  justifyContent: 'center',
+                  alignItems: 'center'
 
-              <ImageLeft></ImageLeft> 
+                }}>
+
+                <ImageLeft></ImageLeft>
 
               </View>
 
-          </View>
+            </View>
 
-          <View style={{ flex: 0, justifyContent: 'center' }}>
-            <Text
+            <View style={{ flex: 0, justifyContent: 'center' }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  lineHeight: 24,
+                  fontWeight: '500',
+                  color: 'gray',
+                }}>
+                Sender Details
+              </Text>
+              <View style={{ height: 5 }}></View>
+              <Text style={{ fontSize: 18, lineHeight: 20, fontWeight: '600' }}>
+                {name.first + " " + name.middle}
+              </Text>
+            </View>
+            </View>
+            {/* image arrow right */}
+            <View
               style={{
-                fontSize: 14,
-                lineHeight: 24,
-                fontWeight: '500',
-                color: 'gray',
-              }}>
-              Sender Details
-            </Text>
-            <View style={{ height: 5 }}></View>
-            <Text style={{ fontSize: 18, lineHeight: 20, fontWeight: '600' }}>
-              {name.first + " " + name.middle}
-            </Text>
-          </View>
 
-          {/* image arrow right */}
-          <View
-            style={{
-              marginStart: 40,
-              alignContent: 'center',
-              justifyContent: 'flex-end',
+                alignContent: 'center',
+                justifyContent: 'center',
 
-            }}
-          >
-            <ImageArrowRight></ImageArrowRight>
-          </View>
-
+              }}
+            >
+              <ImageArrowRight></ImageArrowRight>
+            </View>
+          
         </View>
 
         <View style={{ height: 5 }}></View>
