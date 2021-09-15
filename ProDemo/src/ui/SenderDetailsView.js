@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import RowView from './RowView';
+import ImageLeft from './ReviewSenderImageLeft';
 
 class SenderDetailsView extends Component {
   constructor(props) {
@@ -9,9 +10,9 @@ class SenderDetailsView extends Component {
 
   render() {
 
-    let{name,address,email} = this.props.sender;
+    let { name, address, email } = this.props.sender;
 
-    console.log('sender name---',address);
+    console.log('sender name---', address);
     return (
       <View
         style={{
@@ -27,20 +28,30 @@ class SenderDetailsView extends Component {
           shadowOpacity: 1.0,
           elevation: 2,
         }}>
-        <View style={{flex: 0, flexDirection: 'row', padding: 15}}>
+        <View style={{ flex: 0, flexDirection: 'row', padding: 15 }}>
 
           <View
-            style={{width: 70, justifyContent: 'center'}}>
+            style={{ width: 70, justifyContent: 'center' }}>
+            {/* image view circle */}
+
             <View
               style={{
                 width: 50,
                 height: 50,
                 backgroundColor: 'red',
                 borderRadius: 25,
-              }}></View>
+                justifyContent: 'center',
+                alignItems: 'center'
+
+              }}>
+
+              <ImageLeft></ImageLeft> 
+
+              </View>
+
           </View>
 
-          <View style={{flex: 0, justifyContent: 'center'}}>
+          <View style={{ flex: 0, justifyContent: 'center' }}>
             <Text
               style={{
                 fontSize: 14,
@@ -50,24 +61,36 @@ class SenderDetailsView extends Component {
               }}>
               Sender Details
             </Text>
-            <View style={{height: 5}}></View>
-            <Text style={{fontSize: 18, lineHeight: 20, fontWeight: '600'}}>
-              {name.first+" "+name.middle}
+            <View style={{ height: 5 }}></View>
+            <Text style={{ fontSize: 18, lineHeight: 20, fontWeight: '600' }}>
+              {name.first + " " + name.middle}
             </Text>
           </View>
-          
+
+          {/* image arrow right */}
+          <View
+            style={{
+              marginStart: 40,
+              alignContent: 'center',
+              justifyContent: 'flex-end',
+
+            }}
+          >
+            <ImageArrowRight></ImageArrowRight>
+          </View>
+
         </View>
 
-        <View style={{height: 5}}></View>
-        <View style={{height: 2, backgroundColor: '#f5f4f6'}}></View>
-        <View style={{height: 20}}></View>
+        <View style={{ height: 5 }}></View>
+        <View style={{ height: 2, backgroundColor: '#f5f4f6' }}></View>
+        <View style={{ height: 20 }}></View>
 
-        <RowView title={'Sender is'} value= {name.first+" "+name.middle} />
-        <RowView title={'At'} value={address.addressLine1+" "+address.city+" "+address.postalCode} />
+        <RowView title={'Sender is'} value={name.first + " " + name.middle} />
+        <RowView title={'At'} value={address.addressLine1 + " " + address.city + " " + address.postalCode} />
         <RowView title={'Email address'} value={email} />
         <RowView title={'Phone'} value={'+11234567898'} />
 
-        <View style={{height: 10}}></View>
+        <View style={{ height: 10 }}></View>
 
 
       </View>

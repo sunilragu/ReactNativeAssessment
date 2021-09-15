@@ -16,7 +16,8 @@ import SenderIDView from './SenderIDView';
 import TransferDetailsView from './TransferDetailsView';
 
 import {getReviewData} from '../ui/actions/ReviewActions';
-import Response from '../api/response.json'
+import IconWU from './IconWU';
+import Response from '../api/response.json';
 
 class ReviewScreen extends Component {
   constructor(props) {
@@ -45,7 +46,19 @@ class ReviewScreen extends Component {
     return (
       <SafeAreaView style={{flex: 1}}>
         <View style={styles.outerView}>
-          <View style={{height: 30}}></View>
+          {/* top WU icon */}
+
+          <View style={
+            {
+              height: 70,
+              backgroundColor:'black',
+              justifyContent:'center',
+              alignItems:'center'
+            }
+            }>
+            <IconWU></IconWU>
+          </View>
+
           <View style={{flex: 1, paddingHorizontal: 20}}>
             {/* Scroll view start */}
             <ScrollView showsVerticalScrollIndicator={false}>

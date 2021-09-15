@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
+import {textStyle} from './style/ViewStyle';
+
 class RowView extends Component {
   constructor(props) {
     super(props);
@@ -26,34 +28,29 @@ class RowView extends Component {
             }}>
             {/*View to wrap multiple text*/}
             <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 30,
-                color: 'gray',
-              }}>
+              style={
+                textStyle.baseText,
+                textStyle.reviewRowLeftText
+              }
+              >
               {title}
             </Text>
             {/*Superscript*/}
             <Text
-              style={{
-                fontSize: 10,
-                fontWeight: '600',
-                lineHeight: 18,
-                color: 'gray',
-              }}>
+              style={textStyle.subScriptText}>
               {superScriptValue}
             </Text>
           </View>
         </View>
+        {/* right row text price details */}
         <View style={{flex: 1, alignItems: 'flex-end'}}>
           <Text
-            style={{
-              fontSize: 16,
-              lineHeight: 24,
-              fontWeight: '600',
-              color: valueTextColor ? valueTextColor : 'black',
-            }}>
+            style={
+              textStyle.baseText,
+              textStyle.reviewRowRightText,
+              {color: valueTextColor ? valueTextColor : 'black'}
+
+            }>
             {value+" "+currenyType}
           </Text>
         </View>

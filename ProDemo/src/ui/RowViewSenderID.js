@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import { textStyle } from './style/ViewStyle';
 
 class RowViewSenderID extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class RowViewSenderID extends Component {
   }
 
   render() {
-    let {title, IdName,IdNumber, superScriptValue, valueTextColor} = this.props;
+    let {title, IdName, IdNumber} = this.props;
     return (
       <View
         style={{
@@ -26,12 +27,10 @@ class RowViewSenderID extends Component {
             }}>
             {/*View to wrap multiple text*/}
             <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 30,
-                color: 'gray',
-              }}>
+              style={
+                textStyle.baseText,
+                textStyle.reviewSenderRowLeftText
+                }>
               {title}
             </Text>
             

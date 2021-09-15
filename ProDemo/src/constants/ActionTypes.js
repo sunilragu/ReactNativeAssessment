@@ -1,2 +1,0 @@
-
-export const ORDER_REVIEW = 'ORDER_REVIEW'
