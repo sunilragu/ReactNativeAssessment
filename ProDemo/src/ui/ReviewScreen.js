@@ -18,6 +18,7 @@ import TransferDetailsView from './TransferDetailsView';
 import {getReviewData} from '../ui/actions/ReviewActions';
 import IconWU from './IconWU';
 import Response from '../api/response.json';
+import ImageArrowRight from './ImageArrowRight';
 
 class ReviewScreen extends Component {
   constructor(props) {
@@ -66,13 +67,17 @@ class ReviewScreen extends Component {
                 {/* top Review text */}
                 <View
                   style={{
-                    height: 60,
-                    justifyContent: 'center',
+                    height: 110,
+                    justifyContent: 'space-between',
+                    flexDirection:'row',
+                    alignItems:'center'
                   }}>
                   <Text style={{fontSize: 40, fontWeight: 'bold'}}>Review</Text>
+                  <ImageArrowRight></ImageArrowRight>
+
                 </View>
 
-                <View style={{height: 30}}></View>
+                
                 <View
                   style={{
                     flex: 0,
