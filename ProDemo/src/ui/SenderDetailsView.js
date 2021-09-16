@@ -12,7 +12,7 @@ class SenderDetailsView extends Component {
 
     let { name, address, email } = this.props.sender;
 
-    console.log('sender name---', address);
+  //  console.log('sender name---', address);
     return (
       <View
         style={{

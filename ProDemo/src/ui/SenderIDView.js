@@ -13,7 +13,7 @@ class SenderIDView extends Component {
 
   render() {
     let { documents } = this.props.complianceData;
-    console.log('complianceData---', documents);
+    //console.log('complianceData---', documents);
     return (
       // card view outer with corner redious
       <View

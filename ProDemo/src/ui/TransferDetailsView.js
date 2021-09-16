@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import RowView from './RowView';
+import {getReviewData} from '../ui/actions/ReviewActions';
 
-class TransferDetailsView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    let {product} = this.props;
-    console.log('review data product...',product.name);
-
-    return (
+const TransferDetailsView =(props)=>{
+  let {product} = props;
+  console.log('review data product...',product);
+ 
+   return (
+    
       <View
         style={{
           flex: 0,
@@ -117,7 +115,7 @@ class TransferDetailsView extends Component {
       </View>
     );
   }
-}
+  
 
 const styles = StyleSheet.create({
   outerView: {
@@ -126,4 +124,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransferDetailsView;
+function mapStateToProps(state) {
+  console.log('mapStateToProps TransferDetailsView',state);
+  return {
+    product: state.reviewData.order.product,
+  };
+}
+
+export default connect(mapStateToProps, {
+  getReviewData,
+})(TransferDetailsView);
+

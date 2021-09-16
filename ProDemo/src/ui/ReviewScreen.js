@@ -31,7 +31,8 @@ class ReviewScreen extends Component {
   render() {
     let {reviewData} = this.props.reviewDataModel;
     
-    console.log('review data...',reviewData);
+    //console.log('review data...',reviewData);
+
     if(!reviewData){
       return(<View style ={{justifyContent:'center',alignItems:'center',flexDirection:'column',flex:1}}>
         <Text style ={{fontSize:30,fontWeight:'bold'}}>No data found!</Text>
@@ -42,7 +43,7 @@ class ReviewScreen extends Component {
     let{sender,order} = reviewData;
     //let{sender} = reviewData;
    
-    console.log('review data sender...',sender);
+   // console.log('review data sender...',sender);
 
     return (
       <SafeAreaView style={{flex: 1}}>
@@ -110,7 +111,7 @@ class ReviewScreen extends Component {
 
                 <View style={{height: 30}}></View>
 
-                <TransferDetailsView product = {order.product}/>
+                <TransferDetailsView/>
 
                 <View style={{height: 25}}></View>
 
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
+  console.log('mapStateToProps Review screen');
   return {
     reviewDataModel: state,
   };
