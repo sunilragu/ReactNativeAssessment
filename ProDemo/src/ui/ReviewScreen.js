@@ -6,9 +6,6 @@ import {
   ScrollView,
   View,
   Text,
-  TextInput,
-  TouchableOpacity,
-  Image,
 } from 'react-native';
 
 import SenderDetailsView from './SenderDetailsView';
@@ -36,7 +33,10 @@ class ReviewScreen extends Component {
     
     console.log('review data...',reviewData);
     if(!reviewData){
-      return<View></View>;
+      return(<View style ={{justifyContent:'center',alignItems:'center',flexDirection:'column',flex:1}}>
+        <Text style ={{fontSize:30,fontWeight:'bold'}}>No data found!</Text>
+        
+      </View>);
     }
 
     let{sender,order} = reviewData;
@@ -144,12 +144,12 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStoreToProps(state) {
+function mapStateToProps(state) {
   return {
     reviewDataModel: state,
   };
 }
 
-export default connect(mapStoreToProps, {
+export default connect(mapStateToProps, {
   getReviewData,
 })(ReviewScreen);
