@@ -3,40 +3,34 @@ import {connect} from 'react-redux';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import RowView from './RowView';
 import {getReviewData} from '../ui/actions/ReviewActions';
+import { CardStyle } from './style/ReviewCardStyle';
+import { styleSpaceBetweenFlexRow, textStyle,centerView } from './style/ViewStyle';
+import { EditButton } from './EditButton';
 
 const TransferDetailsView =(props)=>{
   let {product} = props;
   console.log('review data product...',product);
  
    return (
-    
+    // transfer details header view
       <View
-        style={{
-          flex: 0,
-          backgroundColor: '#FFFFFF',
-          borderRadius: 5,
-          shadowColor: '#e5e9f5',
-          shadowOffset: {
-            width: 10,
-            height: 10,
-          },
-          shadowRadius: 20,
-          shadowOpacity: 1.0,
-          elevation: 2,
-        }}>
+        style={CardStyle.card}>
         <View style={{flex: 0, padding: 15}}>
           <View style={{height: 5}}></View>
-          <Text style={{fontSize: 22, lineHeight: 24, fontWeight: '600'}}>
+          <Text style={textStyle.textLarge}>
             Transfer details
           </Text>
         </View>
-        <View style={{height: 2, backgroundColor: '#f5f4f6'}}></View>
-        <View style={{height: 10}}></View>
+        {/* divider line */}
 
+        <View style={{height: 2, backgroundColor: '#f5f4f6'}}></View>
+
+        <View style={{height: 10}}></View>
+        {/* infalte row */}
         <RowView title={"You're sending"} value={product.origination.principalAmount} currenyType ={"CAD"} />
         <RowView title={'Exchange rate'} value={product.exchangeRate} superScriptValue={'2'} currenyType ={"INR"}/>
         <RowView title={'Receiver gets'} value={product.destination.expectedPayoutAmount} superScriptValue={'1,2,5,15'} currenyType ={"INR"}/>
-
+      {/* row divider */}
         <View style={{height: 10}}></View>
         <View
           style={{
@@ -45,35 +39,35 @@ const TransferDetailsView =(props)=>{
             backgroundColor: '#f5f4f6',
           }}></View>
         <View style={{height: 10}}></View>
+        {/* row inflate  */}
         <RowView title={'Our fees'} value={product.fees} superScriptValue={'2,5'} currenyType ={"CAD"}/>
         <RowView title={'Promo code'} value={'-5.00 CAD'} valueTextColor={'#4b8158'} currenyType ={"CAD"}/>
         <View style={{height: 10}}></View>
 
+{/* total you pay text.... */}
         <View
           style={{
-            flex: 0,
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            alignItems: 'center',
+            ...styleSpaceBetweenFlexRow,
             backgroundColor: 'black',
             paddingHorizontal: 15,
             paddingVertical: 5,
-          }}>
+          }
+          }>
           <Text
-            style={{
-              fontSize: 18,
-              lineHeight: 24,
-              fontWeight: '600',
-              color: 'white',
-            }}>
+            style={
+              
+              {
+               ...textStyle.textNormal,
+                color: 'white',
+              }
+          }
+            >
             Total you pay
           </Text>
           <Text
             style={{
-              fontSize: 18,
-              lineHeight: 24,
-              fontWeight: '600',
-              color: 'white',
+              ...textStyle.textNormal,
+                color: 'white',
             }}>
             102.50 CAD
           </Text>
@@ -87,7 +81,7 @@ const TransferDetailsView =(props)=>{
             backgroundColor: '#f5f4f6',
           }}></View>
         <View style={{height: 10}}></View>
-
+{/* total you pay text..... */}
         <RowView title={'Payment method'} value={product.type} superScriptValue={'3'}/>
         <RowView title={'To'} value={'India'} />
         <RowView title={'Delivery by'} value={'Cash pickup'} superScriptValue={'6,15'}/>
@@ -95,34 +89,13 @@ const TransferDetailsView =(props)=>{
 
         <View style={{height: 10}}></View>
         <View style={{flex: 0}}>
-          <TouchableOpacity
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: 50,
-            }}>
-            <Text
-              style={{
-                fontSize: 18,
-                lineHeight: 24,
-                fontWeight: '600',
-                color: 'blue',
-              }}>
-              Edit
-            </Text>
-          </TouchableOpacity>
+          {/* Edit button touch */}
+          <EditButton/>
         </View>
       </View>
     );
   }
   
-
-const styles = StyleSheet.create({
-  outerView: {
-    flex: 1,
-    backgroundColor: '#f5f4f6',
-  },
-});
 
 function mapStateToProps(state) {
   console.log('mapStateToProps TransferDetailsView',state);

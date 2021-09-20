@@ -1,24 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-import {textStyle} from './style/ViewStyle';
+import {styleSpaceBetweenFlexRow, textStyle} from './style/ViewStyle';
 
-class RowView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    let {title, value, superScriptValue, valueTextColor,currenyType=''} = this.props;
+const RowView =(props)=> {
+  
+    let {title, value, superScriptValue, valueTextColor,currenyType=''} = props;
     return (
       <View
         style={{
-          flex: 0,
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          ...styleSpaceBetweenFlexRow,
           paddingHorizontal: 15,
           paddingVertical: 10,
-          flexDirection: 'row',
+          
         }}>
         <View style={{flex: 1}}>
           <View
@@ -57,13 +51,7 @@ class RowView extends Component {
       </View>
     );
   }
-}
 
-const styles = StyleSheet.create({
-  outerView: {
-    flex: 1,
-    backgroundColor: '#f5f4f6',
-  },
-});
+
 
 export default RowView;

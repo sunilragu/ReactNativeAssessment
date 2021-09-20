@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -12,10 +12,11 @@ import SenderDetailsView from './SenderDetailsView';
 import SenderIDView from './SenderIDView';
 import TransferDetailsView from './TransferDetailsView';
 
-import {getReviewData} from '../ui/actions/ReviewActions';
+import { getReviewData } from '../ui/actions/ReviewActions';
 import IconWU from './IconWU';
 import Response from '../api/response.json';
 import ImageArrowRight from './ImageArrowRight';
+import * as ViewStyle from './style/ViewStyle';
 
 class ReviewScreen extends Component {
   constructor(props) {
@@ -25,103 +26,90 @@ class ReviewScreen extends Component {
   componentDidMount() {
 
     this.props.getReviewData(Response);
-  
+
   }
-
+  // render screen 
   render() {
-    let {reviewData} = this.props.reviewDataModel;
-    
-    //console.log('review data...',reviewData);
+    let { reviewData } = this.props.reviewDataModel;
 
-    if(!reviewData){
-      return(<View style ={{justifyContent:'center',alignItems:'center',flexDirection:'column',flex:1}}>
-        <Text style ={{fontSize:30,fontWeight:'bold'}}>No data found!</Text>
-        
+    if (!reviewData) {
+      return (<View style={
+        ViewStyle.styleNoDataFound.centerScreen
+      }>
+        <Text style={ViewStyle.textStyle.textBold}>No data found!</Text>
       </View>);
     }
 
-    let{sender,order} = reviewData;
-    //let{sender} = reviewData;
-   
-   // console.log('review data sender...',sender);
-
+    let { sender, order } = reviewData;
+    // retuen the main root view which will be renderd on the UI
     return (
-      <SafeAreaView style={{flex: 1}}>
-        <View style={styles.outerView}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={ViewStyle.stylesOuter.outerView}>
           {/* top WU icon */}
 
           <View style={
-            {
-              height: 70,
-              backgroundColor:'black',
-              justifyContent:'center',
-              alignItems:'center'
-            }
-            }>
+            ViewStyle.styleTopHeaderView.topHeader
+          }>
             <IconWU></IconWU>
           </View>
 
-          <View style={{flex: 1, paddingHorizontal: 20}}>
+          <View style={{ flex: 1, paddingHorizontal: 20 }}>
             {/* Scroll view start */}
             <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={{flex: 1}}>
+              <View style={{ flex: 1 }}>
                 {/* top Review text */}
                 <View
-                  style={{
-                    height: 110,
-                    justifyContent: 'space-between',
-                    flexDirection:'row',
-                    alignItems:'center'
-                  }}>
-                  <Text style={{fontSize: 30, fontWeight: 'bold'}}>Review</Text>
+                  style={
+                    ViewStyle.styleReviewRow.review
+                  }>
+                  <Text style={ViewStyle.textStyle.textBold}>Review</Text>
                   <ImageArrowRight></ImageArrowRight>
 
                 </View>
 
-                
                 <View
-                  style={{
-                    flex: 0,
-                    justifyContent: 'center',
-                  }}>
+                  style={
+                    {
+                      flex: 0,
+                    },
+                    ViewStyle.centerView
+                    }>
                   <Text
-                    style={{fontSize: 18, lineHeight: 24, fontWeight: '600'}}>
+                    style={ViewStyle.textStyle.textNormal}>
                     This is not a receipt. Please review your transfer details
                   </Text>
                 </View>
 
-                <View style={{height: 30}}></View>
+                <View style={{ height: 30 }}></View>
                 {/* transferdate view */}
                 <View
                   style={{
-                    flex: 0,
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                    alignItems: 'center',
+                    ...ViewStyle.styleSpaceBetweenFlexRow,
+                    
                   }}>
                   <Text
-                    style={{fontSize: 18, lineHeight: 24, fontWeight: '600'}}>
+                    style={ViewStyle.textStyle.textNormal}>
                     Date of transfer
                   </Text>
                   <Text
-                    style={{fontSize: 18, lineHeight: 24, fontWeight: '600'}}>
+                    style={ViewStyle.textStyle.textNormal}>
                     07/15/2021
                   </Text>
                 </View>
 
-                <View style={{height: 30}}></View>
+                <View style={{ height: 30 }}></View>
 
-                <TransferDetailsView/>
+                <TransferDetailsView />
 
-                <View style={{height: 25}}></View>
+                <View style={{ height: 25 }}></View>
 
-                <SenderDetailsView sender = {sender}/>
+                <SenderDetailsView sender={sender} />
 
-                <View style={{height: 30}}></View>
+                <View style={{ height: 30 }}></View>
 
-                <SenderIDView complianceData ={sender.complianceData}/>
+                <SenderIDView complianceData={sender.complianceData} />
 
-                <View style={{height: 30}}></View>
+                <View style={{ height: 30 }}></View>
 
               </View>
             </ScrollView>
@@ -132,18 +120,6 @@ class ReviewScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  outerView: {
-    flex: 1,
-    backgroundColor: '#f5f4f6',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
 
 function mapStateToProps(state) {
   console.log('mapStateToProps Review screen');
