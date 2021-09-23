@@ -8,7 +8,7 @@ import { Provider }  from 'react-redux'
 
 import ReviewScreen from './src/ui/ReviewScreen';
 
-import Reducer from './src/ui/reducers/ReviewReducer';
+import Reducer from './src/store/reducers/ReviewReducer';
 
 import { createStore } from 'redux';
 

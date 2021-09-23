@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text} from 'react-native';
-import {getReviewData} from './actions/ReviewActions';
+import {getReviewData} from '../store/actions/ReviewActions';
 import { CardStyle } from './style/ReviewCardStyle';
 import { styleSpaceBetweenFlexRow, textStyle } from './style/ViewStyle';
 import { EditButton } from './EditButton';

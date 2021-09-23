@@ -12,7 +12,7 @@ import SenderDetailsView from './SenderDetailsView';
 import SenderIDView from './SenderIDView';
 import TransferDetailsView from './TransferDetailsView';
 
-import { getReviewData } from './actions/ReviewActions';
+import { getReviewData } from '../store/actions/ReviewActions';
 import IconWU from './IconWU';
 import Response from '../api/response.json'
 import ImageArrowRight from './ImageArrowRight';
